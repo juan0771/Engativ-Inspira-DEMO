@@ -31,10 +31,87 @@
             <div class="menu-item active" onclick="filtrarLocalidad('todas', this)">
                 <i class="fas fa-globe"></i> Mostrar todo los productos
             </div>
-            <div class="menu-item" onclick="filtrarLocalidad('Engativá', this)"><i class="fas fa-map-marker-alt"></i> Engativá</div>
-          <!--  <div class="menu-item" onclick="filtrarLocalidad('Suba', this)"><i class="fas fa-map-marker-alt"></i> Suba</div>
-            <div class="menu-item" onclick="filtrarLocalidad('Teusaquillo', this)"><i class="fas fa-map-marker-alt"></i> Teusaquillo</div>
-            <div class="menu-item" onclick="filtrarLocalidad('Usaquén', this)"><i class="fas fa-map-marker-alt"></i> Usaquén</div> -->
+            
+            <div class="nav-item-wrapper">
+                <div class="menu-item" onclick="filtrarLocalidad('Engativá', this); toggleSubmenu('submenu-engativa')">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <span><i class="fas fa-map-marker-alt"></i> Engativá</span>
+                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+                
+                <div id="submenu-engativa" class="submenu">
+                    
+                    <!-- Sector 1 -->
+                    <button class="sector-btn" onclick="toggleSector('sec1')">1. Sector Engativá Pueblo <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec1" class="sector-content">
+                        <div class="sub-item">Engativá Centro</div>
+                        <div class="sub-item">Villa Gladys</div>
+                        <div class="sub-item">Marandú</div>
+                        <div class="sub-item">Villas del Dorado</div>
+                        <div class="sub-item">Lujan</div>
+                        <div class="sub-item">Real de Minas</div>
+                        <div class="sub-item">La Faena</div>
+                    </div>
+
+                    <!-- Sector 2 -->
+                    <button class="sector-btn" onclick="toggleSector('sec2')">2. Sector Álamos - Garcés Navas <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec2" class="sector-content">
+                        <div class="sub-item">Álamos Norte</div>
+                        <div class="sub-item">Garcés Navas</div>
+                        <div class="sub-item">Villas de Granada</div>
+                        <div class="sub-item">Portal de la Sabana</div>
+                        <div class="sub-item">Bosques de Mariana</div>
+                        <div class="sub-item">El Cortijo</div>
+                        <div class="sub-item">Molinos del Viento</div>
+                    </div>
+
+                    <!-- Sector 3 -->
+                    <button class="sector-btn" onclick="toggleSector('sec3')">3. Sector Tabora - Santa Helenita <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec3" class="sector-content">
+                        <div class="sub-item">Tabora</div>
+                        <div class="sub-item">Santa Helenita</div>
+                        <div class="sub-item">La Granja</div>
+                        <div class="sub-item">Serena</div>
+                        <div class="sub-item">Florida Blanca</div>
+                        <div class="sub-item">Lourdes</div>
+                        <div class="sub-item">Curubal</div>
+                    </div>
+
+                    <!-- Sector 4 -->
+                    <button class="sector-btn" onclick="toggleSector('sec4')">4. Sector Minuto de Dios <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec4" class="sector-content">
+                        <div class="sub-item">Minuto de Dios</div>
+                        <div class="sub-item">Boyacá Real</div>
+                        <div class="sub-item">Pontevedra (sector occidental)</div>
+                        <div class="sub-item">Santa María del Lago</div>
+                        <div class="sub-item">Bonanza</div>
+                        <div class="sub-item">Palermo</div>
+                        <div class="sub-item">Tibaqué</div>
+                    </div>
+
+                    <!-- Sector 5 -->
+                    <button class="sector-btn" onclick="toggleSector('sec5')">5. Sector Las Ferias <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec5" class="sector-content">
+                        <div class="sub-item">Las Ferias</div>
+                        <div class="sub-item">Estrada</div>
+                        <div class="sub-item">Bellavista Occidental</div>
+                        <div class="sub-item">Bosque Popular</div>
+                        <div class="sub-item">Jardín Botánico (sector norte)</div>
+                        <div class="sub-item">La Cabaña</div>
+                    </div>
+
+                    <!-- Sector 6 -->
+                    <button class="sector-btn" onclick="toggleSector('sec6')">6. Sector Quirigua - Bachué <i class="fas fa-chevron-down"></i></button>
+                    <div id="sec6" class="sector-content">
+                        <div class="sub-item">Quirigua</div>
+                        <div class="sub-item">Bachué</div>
+                        <div class="sub-item">Primavera Norte</div>
+                        <div class="sub-item">La Española</div>
+                        <div class="sub-item">Almería</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
