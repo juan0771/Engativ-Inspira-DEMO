@@ -42,10 +42,10 @@ const productos = [
         id: 1, 
         nombre: "Samsung galaxy watch 4", 
         precio: "$ 130.000", 
-        localidad: "Engativá", 
+        localidad: "Suba", 
         img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", 
         imagenes: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500"],
-        vendedor: "Carlos Ruiz", 
+        vendedor: "Asistec Soft", 
         v_img: "https://i.pravatar.cc/150?u=1", 
         dir: "Calle 80 #12-40",
         telefono: "573156165943",
@@ -111,15 +111,18 @@ const buscador = document.getElementById('buscador');
 
 // --- SIMULACIÓN DE CARGA (SKELETON) ---
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        skeleton.style.display = 'none';
-        mainGrid.style.display = 'grid';
-        renderCards(productos);
-    }, 1500);
+    if (skeleton && mainGrid) {
+        setTimeout(() => {
+            skeleton.style.display = 'none';
+            mainGrid.style.display = 'grid';
+            renderCards(productos);
+        }, 1500);
+    }
 });
 
 // --- RENDERIZAR TARJETAS ---
 function renderCards(lista) {
+    if (!mainGrid) return;
     mainGrid.innerHTML = "";
     if (lista.length === 0) {
         errorMsg.style.display = 'block';
@@ -144,11 +147,13 @@ function renderCards(lista) {
 }
 
 // --- BUSCADOR EN TIEMPO REAL ---
-buscador.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(term));
-    renderCards(filtrados);
-});
+if (buscador) {
+    buscador.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(term));
+        renderCards(filtrados);
+    });
+}
 
 // --- FILTRAR POR LOCALIDAD ---
 function filtrarLocalidad(loc, el) {
@@ -158,6 +163,18 @@ function filtrarLocalidad(loc, el) {
     const filtrados = loc === 'todas' ? productos : productos.filter(p => p.localidad === loc);
     renderCards(filtrados);
     document.getElementById('section-title').innerText = loc === 'todas' ? "Sugerencias de hoy" : "Productos en " + loc;
+}
+
+// --- TOGGLE SUBMENU ---
+function toggleSubmenu(id) {
+    const submenu = document.getElementById(id);
+    submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+}
+
+// --- TOGGLE SECTOR (ACORDEÓN) ---
+function toggleSector(id) {
+    const content = document.getElementById(id);
+    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
 }
 
 // --- MODAL Y FUNCIONES ---
