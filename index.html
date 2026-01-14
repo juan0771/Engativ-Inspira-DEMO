@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engativá Inspira - Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="brand-section">
+            <div class="logo-container">
+                <img src="./img/logo.png" alt="Logo" class="main-logo">
+            </div>
+            <span class="brand-name">Marketplace</span>
+        </div>
+
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="buscador" placeholder="¿Qué quieres comprar?">
+        </div>
+
+        <hr class="separator">
+        <h3>Localidades Bogotá</h3>
+        <div id="lista-localidades">
+            <div class="menu-item active" onclick="filtrarLocalidad('todas', this)">
+                <i class="fas fa-globe"></i> Mostrar todo los productos
+            </div>
+            <div class="menu-item" onclick="filtrarLocalidad('Engativá', this)"><i class="fas fa-map-marker-alt"></i> Engativá</div>
+          <!--  <div class="menu-item" onclick="filtrarLocalidad('Suba', this)"><i class="fas fa-map-marker-alt"></i> Suba</div>
+            <div class="menu-item" onclick="filtrarLocalidad('Teusaquillo', this)"><i class="fas fa-map-marker-alt"></i> Teusaquillo</div>
+            <div class="menu-item" onclick="filtrarLocalidad('Usaquén', this)"><i class="fas fa-map-marker-alt"></i> Usaquén</div> -->
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h2 id="section-title">Sugerencias de hoy</h2>
+        
+        <div id="skeleton-container" class="product-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+        
+
+        <div class="product-grid" id="main-grid" style="display: none;">
+            </div>
+
+        <div id="not-found" class="error-msg">
+            <i class="fas fa-search-minus"></i>
+            <p>Producto no Existente</p>
+        </div>
+
+        <footer>
+            <p>&copy; Alcaldía de Engativá - Programa Engativá Inspira. Todos los derechos reservados.
+                <br>
+                <br>
+                Desarrollado por Juan Camilo Andrade
+            </p>
+        </footer>
+    </main>
+
+    <div id="modal-producto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img id="modal-img" src="" alt="Producto">
+                </div>
+                <div class="modal-right">
+                    <h2 id="modal-title"></h2>
+                    <p class="modal-price" id="modal-price"></p>
+                    
+                    <div class="seller-card" onclick="irAlPerfil()">
+                        <img id="seller-img" src="" alt="Vendedor">
+                        <div class="seller-details">
+                            <strong id="seller-name"></strong>
+                            <span id="seller-dir"></span>
+                        </div>
+                    </div>
+
+                    <p class="product-desc">Excelente estado, precio negociable. Entrega inmediata en zona local.</p>
+                    
+                    <button class="btn-primary">Contactar</button>
+                    <button class="btn-secondary" onclick="irAlPerfil()">Detalles del vendedor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

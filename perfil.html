@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Vendedor - Engativá Inspira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-p: #18191a; --bg-s: #242526; --bg-h: #3a3b3c;
+            --txt-p: #e4e6eb; --txt-s: #b0b3b8; --azul: #2d88ff; --verde: #25D366;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-p); color: var(--txt-p); margin: 0; padding-bottom: 50px; }
+
+        /* --- CABECERA: PORTADA Y PERFIL --- */
+        .header-container { background: var(--bg-s); width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .cover-photo { 
+            width: 100%; height: 300px; background: linear-gradient(to bottom, #444, #222);
+            object-fit: cover; border-bottom: 1px solid #333;
+        }
+        
+        .profile-info-wrapper { 
+            max-width: 1050px; margin: 0 auto; padding: 0 20px; 
+            display: flex; align-items: flex-end; transform: translateY(-30px);
+        }
+
+        .profile-pic {
+            width: 168px; height: 168px; border-radius: 50%;
+            border: 4px solid var(--bg-p); background: #555; object-fit: cover;
+        }
+
+        .name-container { margin-left: 20px; margin-bottom: 15px; flex-grow: 1; }
+        .name-container h1 { margin: 0; font-size: 32px; }
+        .name-container p { margin: 5px 0; color: var(--txt-s); font-weight: 600; }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .main-layout { max-width: 1050px; margin: 0 auto; display: grid; grid-template-columns: 360px 1fr; gap: 16px; padding: 20px; }
+
+        /* Columna Izquierda: Información */
+        .intro-card { background: var(--bg-s); padding: 15px; border-radius: 8px; position: sticky; top: 20px; }
+        .intro-card h3 { margin-top: 0; }
+        .info-item { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--txt-p); }
+        .info-item i { font-size: 20px; color: var(--txt-s); width: 25px; text-align: center; }
+
+        /* Columna Derecha: Productos y Filtro */
+        .products-header { 
+            background: var(--bg-s); padding: 15px; border-radius: 8px; 
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+        }
+        
+        .filter-select {
+            background: var(--bg-h); color: white; border: none; 
+            padding: 8px 15px; border-radius: 6px; cursor: pointer; outline: none;
+        }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+
+        .p-card { background: var(--bg-s); border-radius: 8px; overflow: hidden; position: relative; }
+        .p-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .p-info { padding: 10px; }
+        .p-price { font-weight: bold; font-size: 16px; }
+        
+        /* Badges de estado */
+        .badge {
+            position: absolute; top: 10px; right: 10px; padding: 4px 8px;
+            border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase;
+        }
+        .status-disponible { background: var(--verde); color: white; }
+        .status-vendido { background: #fa3e3e; color: white; }
+
+        .back-bar {
+            position: sticky;
+            top: 0;
+            background: var(--bg-p);
+            padding: 12px 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--bg-h);
+        }
+
+        .btn-back {
+            display: inline-block; margin: 0 20px; color: var(--azul); text-decoration: none; font-weight: bold;
+        }
+
+        footer {
+            grid-column: 1 / -1; /* Span all columns in the grid */
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--bg-s);
+            border-radius: 8px;
+            color: var(--txt-s);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 850px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .profile-info-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .name-container { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-bar">
+        <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Marketplace</a>
+    </div>
+    <div class="header-container">
+        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200" class="cover-photo" alt="Portada">
+        
+        <div class="profile-info-wrapper">
+            <img src="https://i.pravatar.cc/150?u=1" class="profile-pic" alt="Vendedor">
+            <div class="name-container">
+                <h1>Doña Martha - Tejidos Engativá</h1>
+                <p>Emprendedor verificado • Engativá Centro</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-layout">
+        <aside>
+            <div class="intro-card">
+                <h3>Información</h3>
+                <div class="info-item">
+                    <i class="fas fa-briefcase"></i> <span>Artesanías en lana virgen</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i> <span>+57 300 123 4567</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> <span>martha.tejidos@email.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i> <span>Calle 80 #10-20, Engativá</span>
+                </div>
+                <button style="width:100%; padding:10px; background:var(--bg-h); border:none; color:white; border-radius:6px; cursor:pointer; font-weight:600;">Editar detalles</button>
+            </div>
+        </aside>
+
+        <section>
+            <div class="products-header">
+                <h3 style="margin:0">Todos los productos</h3>
+                <select class="filter-select" id="estadoFiltro" onchange="filtrarPorEstado()">
+                    <option value="todos">Todos los productos</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Vendido">Vendido</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="gridPerfil">
+                <div class="p-card" data-estado="Disponible">
+                    <span class="badge status-disponible">Disponible</span>
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" class="p-img">
+                    <div class="p-info">
+                        <div class="p-price">$ 130.000</div>
+                        <div style="font-size:14px">Samsung galaxy watch 4</div>
+                    </div>
+                </div>
+
+                <div class="p-card" data-estado="Vendido">
+                    <span class="badge status-vendido">Vendido</span>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" class="p-img">
+                    <div class="p-info">
+                        <div class="p-price">$ 180.000</div>
+                        <div style="font-size:14px">Zapatillas Nike Rojas</div>
+                    </div>
+                </div>
+
+                <div class="p-card" data-estado="Disponible">
+                    <span class="badge status-disponible">Disponible</span>
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" class="p-img">
+                    <div class="p-info">
+                        <div class="p-price">$ 95.000</div>
+                        <div style="font-size:14px">Audífonos Bluetooth</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; Alcaldía de Engativá - Programa Engativá Inspira. Todos los derechos reservados.
+                <br>
+                <br>
+                Desarrollado por Juan Camilo Andrade
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        function filtrarPorEstado() {
+            const filtro = document.getElementById('estadoFiltro').value;
+            const tarjetas = document.querySelectorAll('.p-card');
+            
+            tarjetas.forEach(card => {
+                const estadoCard = card.getAttribute('data-estado');
+                if (filtro === 'todos' || estadoCard === filtro) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
