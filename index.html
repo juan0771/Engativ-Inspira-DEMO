@@ -13,24 +13,27 @@
 <body>
 
     <nav class="sidebar">
-        <div class="brand-section">
-            <div class="logo-container">
-                 <img src="./img/logo.png" alt="Logo" class="main-logo">
+        <div class="background-blur">
+            <div class="brand-section">
+                <div class="logo-container">
+                    <img src="./img/logo.png" alt="Logo" class="main-logo">
+                </div>
+                <span class="brand-name">Marketplace</span>
             </div>
-            <span class="brand-name">Marketplace</span>
-        </div>
 
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="buscador" placeholder="¿Qué quieres comprar?">
-        </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="buscador" placeholder="¿Qué quieres comprar?">
+            </div>
 
-        <div class="menu-item" id="theme-toggle">
-            <i class="fas fa-moon"></i> Modo Oscuro
+            <div class="menu-item" id="theme-toggle">
+                <i class="fas fa-moon"></i> Modo Oscuro
+            </div>
         </div>
     </nav>
 
     <main class="main-content">
+        
         <h3>Localidades Bogotá</h3>
         <div id="lista-localidades">
             <div class="menu-item active" onclick="filtrarLocalidad('todas', this)">
