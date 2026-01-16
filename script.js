@@ -224,7 +224,6 @@ function abrirModal(prod) {
     }
 
     modal.innerHTML = `
-        <div class="swipe-hint"><i class="fas fa-arrows-alt-v"></i> Desliza verticalmente para cerrar</div>
         <div class="modal-content-custom">
             <span class="close-modal-custom">&times;</span>
             <div class="modal-body-flex">
@@ -274,10 +273,10 @@ function abrirModal(prod) {
 
     // Agregar eventos de deslizamiento (Swipe)
     const lightboxContainer = document.getElementById('lightbox-modal');
-    const modalBodyFlex = modal.querySelector('.modal-body-flex');
+    const galleryContainer = document.getElementById('modal-gallery-container');
     
     addSwipeListener(lightboxContainer);
-    addSwipeListener(modalBodyFlex);
+    addSwipeListener(galleryContainer);
 }
 
 function cambiarImagen(direction) {
@@ -431,25 +430,25 @@ function injectModalStyles() {
         .modal-content-custom { background: rgba(255, 255, 255, 0.95); width: 90%; max-width: 800px; border-radius: 12px; padding: 5px 10px 10px 10px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3); color: #050505; }
 
         .close-modal-custom { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #65676b; z-index: 10; }
-        .modal-body-flex { display: flex; gap: 30px; flex-wrap: nowrap; margin-top: 20px; }
+        .modal-body-flex { display: flex;  flex-wrap: nowrap; margin-top: 20px; }
         .modal-gallery { flex: 0 0 350px; width: 350px; position: relative; display: flex; align-items: center; justify-content: center; background: #f9f9f9; border-radius: 8px; height: 350px; }
         .modal-img-main { max-width: 100%; max-height: 100%; object-fit: contain; }
         .nav-btn { background: rgba(0,0,0,0.6); color: white; border: none; padding: 12px 15px; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); border-radius: 50%; font-size: 18px; transition: 0.3s; }
         .nav-btn:hover { background: rgba(0,0,0,0.8); }
         .prev { left: 10px; } .next { right: 10px; }
         .modal-info { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; padding: 15px;}
-        .modal-info h2 { margin: 0 0 10px 0; font-size: 24px; color: #050505; }
+        .modal-info h2 { margin: 0 0 0 0; font-size: 24px; color: #050505; }
         .modal-price-tag { font-size: 22px; font-weight: bold; color: #2d88ff; margin-bottom: 20px; }
-        .modal-description { margin-bottom: 20px; border-top: 1px solid #e4e6eb; padding-top: 15px; }
+        .modal-description { margin-bottom: 20px; border-top: 1px solid #e4e6eb; }
         .modal-description h4 { margin: 0 0 10px 0; font-size: 16px; color: #050505; }
         .modal-description p { font-size: 14px; color: #65676b; line-height: 1.5; margin: 0; }
-        .seller-info-box { display: flex; align-items: center; gap: 15px; padding: 15px; border: 1px solid #e4e6eb; border-radius: 8px; cursor: pointer; transition: 0.2s; margin-bottom: 20px; }
+        .seller-info-box { display: flex; align-items: center; gap: 15px;  border: 1px solid #e4e6eb; border-radius: 8px; cursor: pointer; transition: 0.2s;}
         .seller-info-box:hover { background: #f0f2f5; border-color: #ccc; }
         .seller-avatar-small { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
         .modal-actions { display: flex; flex-direction: column; gap: 10px; }
         .btn-seller-details { padding: 12px; background: #e4e6eb; color: #050505; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
         .btn-whatsapp { padding: 12px; background: #25D366; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        @media(max-width: 700px) { .modal-body-flex { flex-direction: column; } .modal-gallery { width: 100%; height: 250px; flex: auto; } .modal-content-custom { overflow: hidden; } }
+        @media(max-width: 700px) { .modal-body-flex { flex-direction: column; } .modal-gallery { width: 100%; height: 250px; flex: auto; } }
         
         /* Notificación Swipe */
         .swipe-hint { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 15px 25px; border-radius: 30px; font-size: 16px; z-index: 2000; pointer-events: none; opacity: 0; animation: fadeInOut 2.5s ease 0.5s forwards; display: none; flex-direction: column; align-items: center; gap: 5px; }
@@ -499,7 +498,6 @@ function verImagen(imgSrc) {
         };
         lightbox.innerHTML = '<span style="position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; cursor: pointer; z-index: 10001;" onclick="document.getElementById(\'generic-lightbox\').style.display=\'none\'">&times;</span><img id="generic-lightbox-img" style="max-width: 95%; max-height: 95%; object-fit: contain; border-radius: 4px;">';
         document.body.appendChild(lightbox);
-        addSwipeListener(lightbox);
     }
     document.getElementById('generic-lightbox-img').src = imgSrc;
     lightbox.style.display = 'flex';
