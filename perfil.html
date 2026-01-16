@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
+            --bg-p: #f0f2f5; --bg-s: #ffffff; --bg-h: #e4e6eb;
+            --txt-p: #050505; --txt-s: #65676b; --azul: #2d88ff; --verde: #2ea043;
+        }
+
+        body.dark-mode {
             --bg-p: #18191a; --bg-s: #242526; --bg-h: #3a3b3c;
-            --txt-p: #e4e6eb; --txt-s: #b0b3b8; --azul: #2d88ff; --verde: #25D366;
+            --txt-p: #e4e6eb; --txt-s: #b0b3b8;
         }
 
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-p); color: var(--txt-p); margin: 0; padding-bottom: 50px; }
@@ -16,8 +21,11 @@
         /* --- CABECERA: PORTADA Y PERFIL --- */
         .header-container { background: var(--bg-s); width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .cover-photo { 
-            width: 100%; height: 300px; background: linear-gradient(to bottom, #444, #222);
-            object-fit: cover; border-bottom: 1px solid #333;
+            width: 100%; 
+            height: 250px; 
+            background: linear-gradient(to bottom, #444, #222);
+            object-fit: cover; 
+            border-bottom: 1px solid #333;
         }
         
         .profile-info-wrapper { 
@@ -54,7 +62,7 @@
         }
         
         .filter-select {
-            background: var(--bg-h); color: white; border: none; 
+            background: #091037; color: white; border: none; 
             padding: 8px 15px; border-radius: 6px; cursor: pointer; outline: none;
         }
 
@@ -80,6 +88,9 @@
             padding: 12px 0;
             z-index: 100;
             border-bottom: 1px solid var(--bg-h);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .btn-back {
@@ -111,14 +122,17 @@
 
     <div class="back-bar">
         <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Marketplace</a>
+        <button id="theme-toggle" style="background:none; border:none; color:var(--azul); font-weight:bold; cursor:pointer; margin-right:20px; font-size: 16px;">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
     <div class="header-container">
-        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200" class="cover-photo" alt="Portada">
+        <img src="./img/1.png" class="cover-photo" alt="Portada">
         
         <div class="profile-info-wrapper">
-            <img src="https://i.pravatar.cc/150?u=1" class="profile-pic" alt="Vendedor">
+            <img src="./img/2.jpg" class="profile-pic" alt="Vendedor" onclick="expandirImagen('https://i.pravatar.cc/150?u=1')">
             <div class="name-container">
-                <h1>Doña Martha - Tejidos Engativá</h1>
+                <h1>Asistec Soft <br> Soluciones Tecnologicas</h1>
                 <p>Emprendedor verificado • Engativá Centro</p>
             </div>
         </div>
@@ -143,10 +157,10 @@
                 <div class="social-links">
                     <a href="#" style="color: #E1306C;" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" style="color: #1877F2;" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: #fff;" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" style="color: #000000c2;" title="TikTok"><i class="fab fa-tiktok"></i></a>
                     <a href="#" style="color: #25D366;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
-                <button style="width:100%; padding:10px; background:var(--bg-h); border:none; color:white; border-radius:6px; cursor:pointer; font-weight:600;">Editar detalles</button>
+                <button style="width:100%; padding:10px; background:#091037; border:none; color:white; border-radius:6px; cursor:pointer; font-weight:600;">Editar detalles</button>
             </div>
         </aside>
 
@@ -233,6 +247,7 @@
     <script src="script.js"></script>
 
     <script>
+
         function filtrarPorEstado() {
             const filtro = document.getElementById('estadoFiltro').value;
             const tarjetas = document.querySelectorAll('.p-card');
@@ -246,6 +261,7 @@
                 }
             });
         }
+
     </script>
 </body>
 </html>
